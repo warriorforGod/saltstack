@@ -7,17 +7,20 @@ base:
     - match: grain
     - default.vim
 
-  'minion01':
-    - roles.webserver
-    - sites
+  'roles:webserver':
+  - match: grain
+  - roles.webserver
+  - sites
 
-  'minion02':
-    - users.dba
+  'roles:satabase':
+  - match: grain
+  - users.dba
 
-  'minion03':
-    - users.dba
-    - users.qa
+  'myenv:stage':
+  - match: grain
+  - users.qa
 
-  'minion04':
-    - users.all
-    - run_first
+  'myenv:dev':
+  - match: grain
+  - users.all
+  - run_first
